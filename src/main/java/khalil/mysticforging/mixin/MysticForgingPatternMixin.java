@@ -33,18 +33,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.mojang.serialization.DynamicOps;
 
+import khalil.mysticforging.MysticSigils;
+
 @Mixin(SmithingScreenHandler.class)
 public class MysticForgingPatternMixin<V> {
 	ScreenHandlerContext context;
 	SmithingScreenHandler handler;
-
-	String[] bullwarkPattern = {
-			"XXXXX",
-			"    X",
-			"X   X",
-			"    X",
-			"X   X"
-	};
 
 	@Inject(method = "<init>(ILnet/minecraft/entity/player/PlayerInventory;Lnet/minecraft/screen/ScreenHandlerContext;)V", at = @At("RETURN"))
 	private void onConstructor(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context,
@@ -75,11 +69,11 @@ public class MysticForgingPatternMixin<V> {
 					
 
 					//mystic outputs
-					if (checkPattern(world, blockpos, bullwarkPattern, Blocks.NETHERRACK)) {
+					if (checkPattern(world, blockpos, MysticSigils.BULLWARK_1, Blocks.NETHERRACK)) {
 						resultStack = new ItemStack(Items.ACACIA_LOG);
 					}
 
-					if(checkPattern(world, blockpos, bullwarkPattern, Blocks.COPPER_BLOCK)){
+					if(checkPattern(world, blockpos, MysticSigils.PATHFINDER_2, Blocks.COPPER_BLOCK)){
 						resultStack = new ItemStack(Items.COPPER_BLOCK); //temp items lol
 					}
 
