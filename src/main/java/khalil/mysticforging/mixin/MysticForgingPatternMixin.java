@@ -107,7 +107,7 @@ public class MysticForgingPatternMixin<V> {
 						if (actualBlock != requiredBlock)
 							return false;
 						break;
-					case '0': // Wildcard, any block allowed
+					case ' ': // Wildcard, any block allowed
 					default:
 						break;
 				}
