@@ -3,7 +3,9 @@
 	"package": "khalil.mysticforging.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"ForgingAccessMixin",
+		"SmithingAccessMixin",
+		"MysticForgingPatternMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
