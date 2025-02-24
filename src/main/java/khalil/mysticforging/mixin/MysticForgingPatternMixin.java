@@ -2,27 +2,20 @@ package khalil.mysticforging.mixin;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.CraftingResultInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.recipe.RecipePropertySet;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.recipe.SmithingRecipe;
 import net.minecraft.recipe.input.SmithingRecipeInput;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.SmithingScreenHandler;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 
@@ -31,9 +24,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import com.mojang.serialization.DynamicOps;
-
+import khalil.mysticforging.MysticForging;
 import khalil.mysticforging.MysticSigils;
+import khalil.mysticforging.registrationhelpers.ModComponents;
 
 @Mixin(SmithingScreenHandler.class)
 public class MysticForgingPatternMixin<V> {
@@ -69,16 +62,14 @@ public class MysticForgingPatternMixin<V> {
 					
 
 					//mystic outputs
-					if (checkPattern(world, blockpos, MysticSigils.BULLWARK_1, Blocks.NETHERRACK)) {
-						resultStack = new ItemStack(Items.ACACIA_LOG);
+					if (checkPattern(world, blockpos, MysticSigils.BULLWARK_1, Blocks.COBBLESTONE)) {
+						resultStack.set(ModComponents.EARTH_BULWARK1, true);
 					}
 
-					if(checkPattern(world, blockpos, MysticSigils.PATHFINDER_2, Blocks.COPPER_BLOCK)){
-						resultStack = new ItemStack(Items.COPPER_BLOCK); //temp items lol
+					if(checkPattern(world, blockpos, MysticSigils.PATHFINDER_1, Blocks.WHITE_WOOL)){
+						resultStack.set(ModComponents.AIR_PATHFINDER1, true);
 					}
-
-
-
+					
 					output.setStack(0, resultStack);
 					ci.cancel();
 				}

@@ -34,7 +34,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             @Override
             public void generate() {
                 ShapedRecipeJsonBuilder
-                        .create(itemLookup, RecipeCategory.COMBAT, Items.ACACIA_BOAT)
+                        .create(itemLookup, RecipeCategory.COMBAT, ModItems.MYSTIC_UPGRADE_TEMPLATE)
                         .pattern("SSS")
                         .pattern("SLS")
                         .pattern("SSS")
