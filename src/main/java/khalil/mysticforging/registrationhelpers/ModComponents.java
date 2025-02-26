@@ -1,7 +1,5 @@
 package khalil.mysticforging.registrationhelpers;
 
-import com.mojang.serialization.Codec;
-
 import khalil.mysticforging.MysticForging;
 import khalil.mysticforging.mysticSigils.MysticSigil;
 import net.minecraft.component.ComponentType;
