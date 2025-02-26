@@ -2,27 +2,19 @@ package khalil.mysticforging.mixin;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.CraftingResultInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.recipe.RecipePropertySet;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.recipe.SmithingRecipe;
 import net.minecraft.recipe.input.SmithingRecipeInput;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.SmithingScreenHandler;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 
@@ -31,20 +23,14 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import com.mojang.serialization.DynamicOps;
+import khalil.mysticforging.mysticSigils.MysticSigil;
+import khalil.mysticforging.mysticSigils.MysticSigils;
+import khalil.mysticforging.registrationhelpers.ModComponents;
 
 @Mixin(SmithingScreenHandler.class)
 public class MysticForgingPatternMixin<V> {
 	ScreenHandlerContext context;
 	SmithingScreenHandler handler;
-
-	String[] bullwarkPattern = {
-			"XXXXX",
-			"    X",
-			"X   X",
-			"    X",
-			"X   X"
-	};
 
 	@Inject(method = "<init>(ILnet/minecraft/entity/player/PlayerInventory;Lnet/minecraft/screen/ScreenHandlerContext;)V", at = @At("RETURN"))
 	private void onConstructor(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context,
@@ -75,16 +61,14 @@ public class MysticForgingPatternMixin<V> {
 					
 
 					//mystic outputs
-					if (checkPattern(world, blockpos, bullwarkPattern, Blocks.NETHERRACK)) {
-						resultStack = new ItemStack(Items.ACACIA_LOG);
+					if (checkPattern(world, blockpos, MysticSigil.Patterns.BULLWARK_1.pattern(), Blocks.COBBLESTONE)) {
+						resultStack.set(ModComponents.SIGIL, MysticSigils.EARTH_BULWARK1);
 					}
 
-					if(checkPattern(world, blockpos, bullwarkPattern, Blocks.COPPER_BLOCK)){
-						resultStack = new ItemStack(Items.COPPER_BLOCK); //temp items lol
+					if(checkPattern(world, blockpos, MysticSigil.Patterns.PATHFINDER_1.pattern(), Blocks.WHITE_WOOL)){
+						resultStack.set(ModComponents.SIGIL, MysticSigils.AIR_PATHFINDER1);
 					}
-
-
-
+					
 					output.setStack(0, resultStack);
 					ci.cancel();
 				}

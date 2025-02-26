@@ -2,11 +2,13 @@ package khalil.mysticforging.datagen;
 
 import java.util.concurrent.CompletableFuture;
 
+import khalil.mysticforging.registrationhelpers.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
 import net.minecraft.data.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryEntryLookup;
@@ -26,14 +28,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     @Override
     protected RecipeGenerator getRecipeGenerator(WrapperLookup registryLookup, RecipeExporter exporter) {
         return new RecipeGenerator(registryLookup, exporter) {
-            RegistryEntryLookup<?> itemLookup = registryLookup.getOptional(RegistryKeys.ITEM)
+            RegistryEntryLookup<Item> itemLookup = registryLookup.getOptional(RegistryKeys.ITEM)
                     .orElseThrow(() -> new IllegalStateException("Item registry not found"));
 
-            @SuppressWarnings({ "unchecked", "rawtypes" })
             @Override
             public void generate() {
                 ShapedRecipeJsonBuilder
-                        .create((RegistryEntryLookup) itemLookup, RecipeCategory.COMBAT, Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE)
+                        .create(itemLookup, RecipeCategory.COMBAT, ModItems.MYSTIC_UPGRADE_TEMPLATE)
                         .pattern("SSS")
                         .pattern("SLS")
                         .pattern("SSS")
