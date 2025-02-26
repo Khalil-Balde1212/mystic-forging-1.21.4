@@ -29,7 +29,7 @@ public class MysticSigil {
             Codec.INT.fieldOf("level").forGetter(MysticSigil::getLevel),
             Registries.BLOCK.getCodec().fieldOf("focus_block").forGetter(sigil -> sigil.FOCUS_BLOCK),
             MysticPattern.CODEC.fieldOf("pattern").forGetter(sigil -> sigil.PATTERN),
-            Registries.STATUS_EFFECT.getCodec().fieldOf("focus_block").forGetter(sigil -> sigil.effect))
+            Registries.STATUS_EFFECT.getCodec().fieldOf("effect").forGetter(sigil -> sigil.effect))
             .apply(instance, MysticSigil::new));
 
     public MysticSigil(String name, School school, int level, Block focusBlock, MysticPattern pattern,
