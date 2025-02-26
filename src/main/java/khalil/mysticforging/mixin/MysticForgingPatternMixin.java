@@ -5,7 +5,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.CraftingResultInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.recipe.SmithingRecipe;
@@ -24,8 +23,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import khalil.mysticforging.MysticForging;
-import khalil.mysticforging.MysticSigils;
+import khalil.mysticforging.mysticSigils.MysticSigils;
 import khalil.mysticforging.registrationhelpers.ModComponents;
 
 @Mixin(SmithingScreenHandler.class)

@@ -1,4 +1,4 @@
-package khalil.mysticforging;
+package khalil.mysticforging.mysticSigils;
 
 public class MysticSigils {
     /*
