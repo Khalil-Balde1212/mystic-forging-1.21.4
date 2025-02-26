@@ -2,6 +2,7 @@ package khalil.mysticforging;
 
 import java.util.List;
 
+import khalil.mysticforging.mysticSigils.MysticSigil;
 import khalil.mysticforging.registrationhelpers.ModComponents;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.item.Item.TooltipContext;
@@ -15,13 +16,25 @@ public class ModClientEvents {
         ItemTooltipCallback.EVENT
                 .register((ItemStack stack, TooltipContext context, TooltipType tooltipType, List<Text> lines) -> {
 
-                    if (stack.contains(ModComponents.AIR_PATHFINDER1))
-                        if (stack.get(ModComponents.AIR_PATHFINDER1))
-                            lines.add(Text.literal("Wind Pathfinder").formatted(Formatting.GREEN));
+                    if(stack.get(ModComponents.SIGIL) == null)return;
+                    MysticSigil sigil = stack.get(ModComponents.SIGIL);
 
-                    if (stack.contains(ModComponents.EARTH_BULWARK1))
-                        if (stack.get(ModComponents.EARTH_BULWARK1))
-                            lines.add(Text.literal("Earth Bullwark").formatted(Formatting.DARK_RED));
+                    switch (sigil.getSchool()) {
+                        case MysticSigil.School.WATER:
+                            lines.add(Text.literal(sigil.getName()).formatted(Formatting.BLUE));
+                            break;
+                        case MysticSigil.School.EARTH:
+                            lines.add(Text.literal(sigil.getName()).formatted(Formatting.GRAY));
+                            break;
+                        case MysticSigil.School.AIR:
+                            lines.add(Text.literal(sigil.getName()).formatted(Formatting.AQUA));
+                            break;
+                        case MysticSigil.School.FIRE:
+                            lines.add(Text.literal(sigil.getName()).formatted(Formatting.RED));
+                            break;
+                        default:
+                        break;
+                    }
                 });
     }
 }

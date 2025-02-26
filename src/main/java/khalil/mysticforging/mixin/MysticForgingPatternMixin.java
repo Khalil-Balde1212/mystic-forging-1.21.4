@@ -23,6 +23,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import khalil.mysticforging.mysticSigils.MysticSigil;
 import khalil.mysticforging.mysticSigils.MysticSigils;
 import khalil.mysticforging.registrationhelpers.ModComponents;
 
@@ -60,12 +61,12 @@ public class MysticForgingPatternMixin<V> {
 					
 
 					//mystic outputs
-					if (checkPattern(world, blockpos, MysticSigils.BULLWARK_1, Blocks.COBBLESTONE)) {
-						resultStack.set(ModComponents.EARTH_BULWARK1, true);
+					if (checkPattern(world, blockpos, MysticSigil.Patterns.BULLWARK_1.pattern(), Blocks.COBBLESTONE)) {
+						resultStack.set(ModComponents.SIGIL, MysticSigils.EARTH_BULWARK1);
 					}
 
-					if(checkPattern(world, blockpos, MysticSigils.PATHFINDER_1, Blocks.WHITE_WOOL)){
-						resultStack.set(ModComponents.AIR_PATHFINDER1, true);
+					if(checkPattern(world, blockpos, MysticSigil.Patterns.PATHFINDER_1.pattern(), Blocks.WHITE_WOOL)){
+						resultStack.set(ModComponents.SIGIL, MysticSigils.AIR_PATHFINDER1);
 					}
 					
 					output.setStack(0, resultStack);
