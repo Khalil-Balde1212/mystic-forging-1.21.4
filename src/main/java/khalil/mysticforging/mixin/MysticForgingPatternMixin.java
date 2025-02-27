@@ -62,13 +62,16 @@ public class MysticForgingPatternMixin<V> {
 
 					//mystic outputs
 					if (checkPattern(world, blockpos, MysticSigil.Patterns.BULLWARK_1.pattern(), Blocks.COBBLESTONE)) {
-						resultStack.set(ModComponents.SIGIL, MysticSigils.EARTH_BULWARK1);
+						resultStack.set(ModComponents.SIGIL, MysticSigils.EARTH_BULWARK);
 					}
 
 					if(checkPattern(world, blockpos, MysticSigil.Patterns.PATHFINDER_1.pattern(), Blocks.WHITE_WOOL)){
-						resultStack.set(ModComponents.SIGIL, MysticSigils.AIR_PATHFINDER1);
+						resultStack.set(ModComponents.SIGIL, MysticSigils.AIR_PATHFINDER);
 					}
 					
+					if(checkPattern(world, blockpos, MysticSigil.Patterns.PATHFINDER_2.pattern(), Blocks.WHITE_WOOL)){
+						resultStack.set(ModComponents.SIGIL, MysticSigils.AIR_PATHFINDER.setLevel(2));
+					}
 					
 					output.setStack(0, resultStack);
 					ci.cancel();
