@@ -3,12 +3,10 @@ package khalil.mysticforging.effects;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -16,8 +14,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import com.jcraft.jorbis.Block;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 
@@ -44,6 +40,7 @@ public class EarthPathfinderEffect extends StatusEffect {
 
     @Override
     public boolean applyUpdateEffect(ServerWorld world, LivingEntity entity, int amplifier) {
+
         pillarHeight = amplifier;
         if (entity instanceof PlayerEntity player) {
             BlockPos pos = player.getBlockPos().down();
@@ -51,11 +48,11 @@ public class EarthPathfinderEffect extends StatusEffect {
 
             // Check if the ground beneath the player is one of the earthy blocks
             if (player.isSneaking() && player.isOnGround() && isEarthyBlock(blockState)) {
-                if (player.getStackInHand(Hand.MAIN_HAND).isEmpty()){
+                if (player.getStackInHand(Hand.MAIN_HAND).isEmpty()) {
                     launchPlayer(player, amplifier);
 
                     scheduler.schedule(() -> createEarthPillar(world, pos, blockState), 50, TimeUnit.MILLISECONDS);
-        
+
                 }
             }
         }
@@ -65,17 +62,18 @@ public class EarthPathfinderEffect extends StatusEffect {
     }
 
     private void createEarthPillar(ServerWorld world, BlockPos pos, BlockState pillarBlock) {
-        for(int i = 0; i <= pillarHeight; i++){
-            BlockPos pillarPos = pos.up(i+1);
-            scheduler.schedule(() -> world.setBlockState(pillarPos, pillarBlock), 50*i, TimeUnit.MILLISECONDS);
+        for (int i = 0; i <= pillarHeight; i++) {
+            BlockPos pillarPos = pos.up(i + 1);
+            scheduler.schedule(() -> world.setBlockState(pillarPos, pillarBlock), 50 * i, TimeUnit.MILLISECONDS);
         }
-        scheduler.schedule(() -> removeEarthPillar(world, pos), 50*pillarHeight + 500, TimeUnit.MILLISECONDS);
+        scheduler.schedule(() -> removeEarthPillar(world, pos), 50 * pillarHeight + 500, TimeUnit.MILLISECONDS);
     }
 
     private void removeEarthPillar(ServerWorld world, BlockPos pos) {
-        for(int i = 0; i <= pillarHeight; i++){
-            BlockPos pillarPos = pos.up(i+1);
-            scheduler.schedule(() -> world.setBlockState(pillarPos, Blocks.AIR.getDefaultState()), 50*pillarHeight - (50*i), TimeUnit.MILLISECONDS);
+        for (int i = 0; i <= pillarHeight; i++) {
+            BlockPos pillarPos = pos.up(i + 1);
+            scheduler.schedule(() -> world.setBlockState(pillarPos, Blocks.AIR.getDefaultState()),
+                    50 * pillarHeight - (50 * i), TimeUnit.MILLISECONDS);
         }
     }
 
