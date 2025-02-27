@@ -1,3 +1,5 @@
 {
-    "mystic-forging:mystic_upgrade_template" : "Mystic Upgrade Template"
+    "item.mystic-forging.mystic_upgrade_template" : "Mystic Upgrade Template",
+
+    "effect.mystic-forging.pathfinder_effect" : "Pathfinder Effect"
 }
