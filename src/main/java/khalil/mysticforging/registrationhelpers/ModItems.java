@@ -20,9 +20,9 @@ public class ModItems {
             new Item.Settings());
 
     public static final ItemGroup SAURID_MAIN_GROUP = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(MysticForging.MOD_ID, "saurid_main"),
+            Identifier.of(MysticForging.MOD_ID, "mystic_forging_main"),
             FabricItemGroup.builder().icon(() -> new ItemStack(Items.SMITHING_TABLE))
-                    .displayName(Text.translatable("itemgroup.saurid-dungeon.saurid_main"))
+                    .displayName(Text.translatable("itemgroup.mystic_forging_main"))
                     .entries((displayContext, entries) -> {
                         entries.add(MYSTIC_UPGRADE_TEMPLATE);
                     }).build());
