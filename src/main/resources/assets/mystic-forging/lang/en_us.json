@@ -1,3 +1,6 @@
 {
-    "mystic-forging:mystic_upgrade_template" : "Mystic Upgrade Template"
+    "itemgroup.mystic_forging_main" : "Mystic Forging Main Tab",
+    "item.mystic-forging.mystic_upgrade_template" : "Mystic Upgrade Template",
+
+    "effect.mystic-forging.pathfinder_effect" : "Pathfinder Effect"
 }

@@ -5,10 +5,10 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.effect.StatusEffects;
 
 public class MysticSigils {
-    public static MysticSigil EARTH_BULWARK1 = new MysticSigil(
+    public static MysticSigil EARTH_BULWARK = new MysticSigil(
         "Earth Bulwark", MysticSigil.School.EARTH, 1, Blocks.COBBLESTONE, MysticSigil.Patterns.BULLWARK_1, StatusEffects.RESISTANCE.value());
     
-        public static MysticSigil AIR_PATHFINDER1 = new MysticSigil(
+        public static MysticSigil AIR_PATHFINDER = new MysticSigil(
         "Air Pathfinder", MysticSigil.School.AIR, 1, Blocks.COBBLESTONE, MysticSigil.Patterns.PATHFINDER_1, StatusEffects.SPEED.value());
     
     public void init(){
