@@ -7,16 +7,17 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.Registries;
+import net.minecraft.util.Formatting;
 
 import java.util.List;
 
 public class MysticSigil {
     public final String NAME;
-    public final int LEVEL;
     public final School SCHOOL;
     public final Block FOCUS_BLOCK;
     public final MysticPattern PATTERN;
-    private final StatusEffect effect;
+    private final StatusEffect EFFECT;
+    public int level;
 
     public static final Codec<MysticSigil> CODEC = RecordCodecBuilder.create(instance -> instance.group(
             Codec.STRING.fieldOf("name").forGetter(MysticSigil::getName),
@@ -24,36 +25,40 @@ public class MysticSigil {
             Codec.INT.fieldOf("level").forGetter(MysticSigil::getLevel),
             Registries.BLOCK.getCodec().fieldOf("focus_block").forGetter(sigil -> sigil.FOCUS_BLOCK),
             MysticPattern.CODEC.fieldOf("pattern").forGetter(sigil -> sigil.PATTERN),
-            Registries.STATUS_EFFECT.getCodec().fieldOf("effect").forGetter(sigil -> sigil.effect))
+            Registries.STATUS_EFFECT.getCodec().fieldOf("effect").forGetter(sigil -> sigil.EFFECT))
             .apply(instance, MysticSigil::new));
 
     public MysticSigil(String name, School school, int level, Block focusBlock, MysticPattern pattern,
             StatusEffect effect) {
         this.NAME = name;
-        this.LEVEL = level;
+        this.level = level;
         this.SCHOOL = school;
         this.FOCUS_BLOCK = focusBlock;
         this.PATTERN = pattern;
-        this.effect = effect;
+        this.EFFECT = effect;
     }
     
 
     public void applyEffect(PlayerEntity player) {
-        if (effect != null) {
-            player.addStatusEffect(new StatusEffectInstance(Registries.STATUS_EFFECT.getEntry(effect), 0, LEVEL - 1, false, true));
+        if (EFFECT != null) {
+            player.addStatusEffect(new StatusEffectInstance(Registries.STATUS_EFFECT.getEntry(EFFECT), 200, level - 1, false, true));
         }
     }
     
     public StatusEffect getEffect() {
-        return effect;
+        return EFFECT;
     }
 
     public String getName() {
         return NAME;
     }
 
+    public MysticSigil setLevel(int level){
+        this.level = level;
+        return this;
+    }
     public int getLevel() {
-        return LEVEL;
+        return level;
     }
 
     public School getSchool() {
@@ -61,7 +66,20 @@ public class MysticSigil {
     }
 
     public enum School {
-        WATER, EARTH, FIRE, AIR, WOOD;
+        WATER(Formatting.BLUE),
+        EARTH(Formatting.GRAY),
+        FIRE(Formatting.RED),
+        AIR(Formatting.AQUA),
+        WOOD(Formatting.GREEN);
+
+        private School(Formatting color){
+            this.color = color;
+        }
+        Formatting color;
+
+        public Formatting getColor(){
+            return color;
+        }
 
         public static final Codec<School> CODEC = Codec.STRING.xmap(
                 name -> School.valueOf(name.toUpperCase()),

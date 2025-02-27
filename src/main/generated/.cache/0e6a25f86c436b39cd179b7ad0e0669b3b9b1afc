@@ -1,3 +1,11 @@
 // 1.21.4	-999999999-01-01T00:00:00	Mystic Forging/ 
 a883310a4087ff3c56e4ecc31156911065fda756 data/mystic-forging/advancement/recipes/combat/mystic_upgrade_template.json
+85aff7090a71d9332e1af9b87154d7a9ff960981 data/mystic-forging/advancement/recipes/misc/iron_boots_test_smithing.json
+40aeea798e05a0b7131c819c032323111b32e6ab data/mystic-forging/advancement/recipes/misc/iron_chestplate_test_smithing.json
+db8bf408d03b9e9c4f7cc7ea5939eb66a14553c1 data/mystic-forging/advancement/recipes/misc/iron_helmet_test_smithing.json
+d91896b92ffa248a34d97f9f525bd58113b46da6 data/mystic-forging/advancement/recipes/misc/iron_leggings_test_smithing.json
+dc8449c1bbb0b4e681cbd43f6374fbf98b68b875 data/mystic-forging/recipe/iron_boots_test_smithing.json
+b8a9196f6f8edeb9476e6fe63d6313590c44b87e data/mystic-forging/recipe/iron_chestplate_test_smithing.json
+40ca60ebd3ba2cb0b82f53fd0dec435ddd989695 data/mystic-forging/recipe/iron_helmet_test_smithing.json
+0fe8f6810fbcde32975ab040a8c444ba7377af23 data/mystic-forging/recipe/iron_leggings_test_smithing.json
 323566a5affc9dee328633d1868b49d1858f9f8a data/mystic-forging/recipe/mystic_upgrade_template.json
