@@ -69,6 +69,7 @@ public class MysticForgingPatternMixin<V> {
 						resultStack.set(ModComponents.SIGIL, MysticSigils.AIR_PATHFINDER1);
 					}
 					
+					
 					output.setStack(0, resultStack);
 					ci.cancel();
 				}
@@ -92,6 +93,9 @@ public class MysticForgingPatternMixin<V> {
 							return false;
 						break;
 					case ' ': // Wildcard, any block allowed
+						if(actualBlock == requiredBlock){
+							return false;
+						}
 					default:
 						break;
 				}
