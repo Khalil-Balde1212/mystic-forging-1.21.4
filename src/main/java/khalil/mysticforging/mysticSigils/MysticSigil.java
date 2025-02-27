@@ -40,7 +40,7 @@ public class MysticSigil {
 
     public void applyEffect(PlayerEntity player) {
         if (effect != null) {
-            player.addStatusEffect(new StatusEffectInstance(Registries.STATUS_EFFECT.getEntry(effect), 200, LEVEL - 1, false, true));
+            player.addStatusEffect(new StatusEffectInstance(Registries.STATUS_EFFECT.getEntry(effect), 0, LEVEL - 1, false, true));
         }
     }
     

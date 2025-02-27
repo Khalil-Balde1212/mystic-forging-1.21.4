@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import khalil.mysticforging.registrationhelpers.ModBlocks;
 import khalil.mysticforging.registrationhelpers.ModComponents;
+import khalil.mysticforging.registrationhelpers.ModEffects;
 import khalil.mysticforging.registrationhelpers.ModItems;
 
 public class MysticForging implements ModInitializer {
@@ -20,5 +21,6 @@ public class MysticForging implements ModInitializer {
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 		ModComponents.registerModDataComponents();
+		ModEffects.registerModEffects();
 	}
 }
