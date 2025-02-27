@@ -18,29 +18,13 @@ public class ModClientEvents {
     public static void register() {
         ItemTooltipCallback.EVENT
                 .register((ItemStack stack, TooltipContext context, TooltipType tooltipType, List<Text> lines) -> {
-
-                    if(stack.get(ModComponents.SIGIL) == null)return;
                     MysticSigil sigil = stack.get(ModComponents.SIGIL);
+                    if (sigil == null) return; //null guardian
 
-                    switch (sigil.getSchool()) {
-                        case MysticSigil.School.WATER:
-                            lines.add(Text.literal(sigil.getName()  + " " + toRoman(sigil.getLevel())).formatted(Formatting.BLUE));
-                            break;
-                        case MysticSigil.School.EARTH:
-                            lines.add(Text.literal(sigil.getName()  + " " + toRoman(sigil.getLevel())).formatted(Formatting.GRAY));
-                            break;
-                        case MysticSigil.School.AIR:
-                            lines.add(Text.literal(sigil.getName() + " " + toRoman(sigil.getLevel())).formatted(Formatting.AQUA));
-                            break;
-                        case MysticSigil.School.FIRE:
-                            lines.add(Text.literal(sigil.getName()  + " " + toRoman(sigil.getLevel())).formatted(Formatting.RED));
-                            break;
-                        default:
-                        break;
-                    }
+                    lines.add(Text.literal(sigil.getName() + " " + toRoman(sigil.getLevel()))
+                            .formatted(sigil.getSchool().getColor()));
                 });
     }
-
 
     static {
         map.put(1000, "M");
@@ -59,10 +43,10 @@ public class ModClientEvents {
     }
 
     private final static String toRoman(int number) {
-        int l =  map.floorKey(number);
-        if ( number == l ) {
+        int l = map.floorKey(number);
+        if (number == l) {
             return map.get(number);
         }
-        return map.get(l) + toRoman(number-l);
+        return map.get(l) + toRoman(number - l);
     }
 }

@@ -7,6 +7,7 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.Registries;
+import net.minecraft.util.Formatting;
 
 import java.util.List;
 
@@ -65,7 +66,20 @@ public class MysticSigil {
     }
 
     public enum School {
-        WATER, EARTH, FIRE, AIR, WOOD;
+        WATER(Formatting.BLUE),
+        EARTH(Formatting.GRAY),
+        FIRE(Formatting.RED),
+        AIR(Formatting.AQUA),
+        WOOD(Formatting.GREEN);
+
+        private School(Formatting color){
+            this.color = color;
+        }
+        Formatting color;
+
+        public Formatting getColor(){
+            return color;
+        }
 
         public static final Codec<School> CODEC = Codec.STRING.xmap(
                 name -> School.valueOf(name.toUpperCase()),
