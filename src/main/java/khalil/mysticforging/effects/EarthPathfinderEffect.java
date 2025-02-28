@@ -19,6 +19,8 @@ import net.minecraft.entity.effect.StatusEffects;
 
 public class EarthPathfinderEffect extends StatusEffect {
     int pillarHeight = 0;
+    boolean wasSneaking = false;
+
     BlockState[] earthyBlocks = {
             Blocks.DIRT.getDefaultState(),
             Blocks.GRASS_BLOCK.getDefaultState(),
@@ -47,17 +49,16 @@ public class EarthPathfinderEffect extends StatusEffect {
             BlockState blockState = world.getBlockState(pos);
 
             // Check if the ground beneath the player is one of the earthy blocks
-            if (player.isSneaking() && player.isOnGround() && isEarthyBlock(blockState)) {
-                if (player.getStackInHand(Hand.MAIN_HAND).isEmpty()) {
+            if (player.isOnGround() && isEarthyBlock(blockState)) {
+                if (!wasSneaking && player.isSneaking()) {
                     launchPlayer(player, amplifier);
-
-                    scheduler.schedule(() -> createEarthPillar(world, pos, blockState), 50, TimeUnit.MILLISECONDS);
-
+                    // player.setPosition(player.getX(), player.getY() + 1, player.getZ());
+                    scheduler.schedule(() -> createEarthPillar(world, pos, blockState), 100, TimeUnit.MILLISECONDS);
                 }
+                wasSneaking = player.isSneaking();
             }
         }
         preventFallDamage(entity);
-        applyFeatherFalling(entity);
         return super.applyUpdateEffect(world, entity, amplifier);
     }
 
@@ -78,10 +79,12 @@ public class EarthPathfinderEffect extends StatusEffect {
     }
 
     private void launchPlayer(PlayerEntity player, int amplifier) {
-        Vec3d direction = player.getRotationVector();
+        double yaw = player.getYaw();
+        double x = -Math.sin(Math.toRadians(yaw));
+        double z = Math.cos(Math.toRadians(yaw));
         double launchSpeed = 1 + (amplifier * 0.5);
-        Vec3d launchVelocity = new Vec3d(direction.x, launchSpeed, direction.z);
-        player.setVelocity(launchVelocity);
+
+        player.setVelocity(new Vec3d(x, 1, z).normalize().multiply(launchSpeed));
         player.velocityModified = true;
     }
 
@@ -95,18 +98,8 @@ public class EarthPathfinderEffect extends StatusEffect {
     }
 
     private void preventFallDamage(LivingEntity entity) {
-        if (entity.fallDistance > 0 && entity.isOnGround()) {
-            BlockPos pos = entity.getBlockPos().down();
-            BlockState blockState = entity.getWorld().getBlockState(pos);
-            if (isEarthyBlock(blockState)) {
-                entity.fallDistance = 0;
-            }
-        }
-    }
-
-    private void applyFeatherFalling(LivingEntity entity) {
-        if (entity.fallDistance > 0 && !entity.isOnGround()) {
-            BlockPos pos = entity.getBlockPos().down();
+        if (entity.fallDistance > 1 && !entity.isOnGround()) {
+            BlockPos pos = entity.getBlockPos().down(2);
             BlockState blockState = entity.getWorld().getBlockState(pos);
             if (isEarthyBlock(blockState)) {
                 entity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 5, 0, false, false, false));

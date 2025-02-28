@@ -69,6 +69,10 @@ public class MysticForgingPatternMixin<V> {
 						resultStack.set(ModComponents.SIGIL, MysticSigils.EARTH_PATHFINDER);
 					}
 
+					if(checkPattern(world, blockpos, MysticSigil.Patterns.PATHFINDER_2.pattern(), Blocks.COBBLESTONE)){
+						resultStack.set(ModComponents.SIGIL, MysticSigils.EARTH_PATHFINDER.setLevel(2));
+					}
+
 					if(checkPattern(world, blockpos, MysticSigil.Patterns.PATHFINDER_1.pattern(), Blocks.WHITE_WOOL)){
 						resultStack.set(ModComponents.SIGIL, MysticSigils.AIR_PATHFINDER);
 					}
