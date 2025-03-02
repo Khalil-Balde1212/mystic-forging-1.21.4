@@ -58,6 +58,7 @@ public class MysticForgingPatternMixin<V> {
 					ItemStack resultStack = firstMatch.get().craft(smithingRecipeInput,
 							serverWorld.getRegistryManager());
 
+
 					checkPatterns(world, blockpos, resultStack);
 					output.setStack(0, resultStack);
 					ci.cancel();

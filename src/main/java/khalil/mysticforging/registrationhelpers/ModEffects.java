@@ -2,6 +2,7 @@ package khalil.mysticforging.registrationhelpers;
 
 import khalil.mysticforging.MysticForging;
 import khalil.mysticforging.effects.AirPathfinderEffect;
+import khalil.mysticforging.effects.EarthBridgeEffect;
 import khalil.mysticforging.effects.EarthPathfinderEffect;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
@@ -16,6 +17,10 @@ public class ModEffects {
 
     public static final RegistryEntry<StatusEffect> EARTH_PATHFINDER = registerStatusEffect("earth_pathfinder",
             new EarthPathfinderEffect(StatusEffectCategory.BENEFICIAL, 0x8B4513));
+
+    public static final RegistryEntry<StatusEffect> EARTH_BRIDGE = registerStatusEffect("earth_bridge",
+            new EarthBridgeEffect(StatusEffectCategory.BENEFICIAL, 0x8B4513) {
+            });
 
     private static RegistryEntry<StatusEffect> registerStatusEffect(String name, StatusEffect statusEffect) {
         return Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(MysticForging.MOD_ID, name),
