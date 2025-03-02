@@ -3,6 +3,7 @@ package khalil.mysticforging.mysticSigils;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.Block;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
@@ -39,7 +40,7 @@ public class MysticSigil {
     }
     
 
-    public void applyEffect(PlayerEntity player) {
+    public void applyEffect(LivingEntity player) {
         if (EFFECT != null) {
             player.addStatusEffect(new StatusEffectInstance(Registries.STATUS_EFFECT.getEntry(EFFECT), 200, level - 1, false, true));
         }
@@ -63,6 +64,14 @@ public class MysticSigil {
 
     public School getSchool() {
         return SCHOOL;
+    }
+
+    public final MysticPattern getPattern() {
+        return PATTERN;
+    }
+
+    public final Block getFocusBlock() {
+        return FOCUS_BLOCK;
     }
 
     public enum School {
