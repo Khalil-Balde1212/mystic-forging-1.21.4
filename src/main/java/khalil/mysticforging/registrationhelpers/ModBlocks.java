@@ -22,6 +22,7 @@ public class ModBlocks {
             AbstractBlock.Settings.copy(Blocks.STONE),
             true);
 
+
     private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory,
             AbstractBlock.Settings settings, boolean shouldRegisterItem) {
         RegistryKey<Block> blockKey = keyOfBlock(name);
