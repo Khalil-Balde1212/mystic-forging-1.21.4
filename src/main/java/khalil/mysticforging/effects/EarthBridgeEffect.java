@@ -39,7 +39,6 @@ public class EarthBridgeEffect extends StatusEffect {
             BlockState blockState = world.getBlockState(pos);
 
             if (player.isSneaking() && isEarthyBlock(blockState) && player.isOnGround()) {
-                System.out.println("sneaking");
                 BlockPos infrontPos = pos.add(player.getHorizontalFacing().getVector());
                 BlockState infrontBlockstate = world.getBlockState(infrontPos);
 

@@ -5,7 +5,6 @@ import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.block.BlockState;
@@ -50,7 +49,7 @@ public class EarthPathfinderEffect extends StatusEffect {
 
             // Check if the ground beneath the player is one of the earthy blocks
             if (player.isOnGround() && isEarthyBlock(blockState)) {
-                if (!wasSneaking && player.isSneaking()) {
+                if (wasSneaking && !player.isSneaking()) {
                     launchPlayer(player, amplifier);
                     // player.setPosition(player.getX(), player.getY() + 1, player.getZ());
                     scheduler.schedule(() -> createEarthPillar(world, pos, blockState), 100, TimeUnit.MILLISECONDS);
