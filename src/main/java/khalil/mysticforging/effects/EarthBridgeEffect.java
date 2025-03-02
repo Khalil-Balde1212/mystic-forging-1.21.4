@@ -28,7 +28,7 @@ public class EarthBridgeEffect extends StatusEffect {
             Blocks.DEEPSLATE.getDefaultState()
     };
 
-    protected EarthBridgeEffect(StatusEffectCategory category, int color) {
+    public EarthBridgeEffect(StatusEffectCategory category, int color) {
         super(category, color);
     }
 
