@@ -37,7 +37,7 @@ public class MysticFocusBlockEntity extends BlockEntity{
         for (int z = 0; z < patternSize; z++) {
             for (int x = 0; x < pattern[z].length(); x++) {
                 char symbol = pattern[z].charAt(x);
-                BlockPos checkPos = centerPos.add(x - offset, -1, z - offset);
+                BlockPos checkPos = centerPos.add(x - offset, 0, z - offset);
                 Block actualBlock = world.getBlockState(checkPos).getBlock();
 
                 switch (symbol) {
