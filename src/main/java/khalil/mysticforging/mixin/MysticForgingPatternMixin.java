@@ -1,7 +1,6 @@
 package khalil.mysticforging.mixin;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.CraftingResultInventory;
 import net.minecraft.item.ItemStack;
@@ -58,35 +57,23 @@ public class MysticForgingPatternMixin<V> {
 					//get result stack
 					ItemStack resultStack = firstMatch.get().craft(smithingRecipeInput,
 							serverWorld.getRegistryManager());
-					
 
-					//mystic outputs
-					if (checkPattern(world, blockpos, MysticSigil.Patterns.BULLWARK_1.pattern(), Blocks.COBBLESTONE)) {
-						resultStack.set(ModComponents.SIGIL, MysticSigils.EARTH_BULWARK);
-					}
-					
-					if (checkPattern(world, blockpos, MysticSigil.Patterns.PATHFINDER_1.pattern(), Blocks.COBBLESTONE)) {
-						resultStack.set(ModComponents.SIGIL, MysticSigils.EARTH_PATHFINDER);
-					}
 
-					if(checkPattern(world, blockpos, MysticSigil.Patterns.PATHFINDER_2.pattern(), Blocks.COBBLESTONE)){
-						resultStack.set(ModComponents.SIGIL, MysticSigils.EARTH_PATHFINDER.setLevel(2));
-					}
-
-					if(checkPattern(world, blockpos, MysticSigil.Patterns.PATHFINDER_1.pattern(), Blocks.WHITE_WOOL)){
-						resultStack.set(ModComponents.SIGIL, MysticSigils.AIR_PATHFINDER);
-					}
-					
-					if(checkPattern(world, blockpos, MysticSigil.Patterns.PATHFINDER_2.pattern(), Blocks.WHITE_WOOL)){
-						resultStack.set(ModComponents.SIGIL, MysticSigils.AIR_PATHFINDER.setLevel(2));
-					}
-					
+					checkPatterns(world, blockpos, resultStack);
 					output.setStack(0, resultStack);
 					ci.cancel();
 				}
 			}
 		});
 	}
+
+	private void checkPatterns(World world, BlockPos pos, ItemStack resultStack) {
+        for (MysticSigil sigil : MysticSigils.sigilList) {
+            if (checkPattern(world, pos, sigil.getPattern().pattern(), sigil.getFocusBlock())) {
+                resultStack.set(ModComponents.SIGIL, sigil.setLevel(sigil.getLevel()));
+            }
+        }
+    }
 
 	private boolean checkPattern(World world, BlockPos centerPos, String[] pattern, Block requiredBlock) {
 		int patternSize = pattern.length;

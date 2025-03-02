@@ -25,6 +25,7 @@ public class ModItems {
                     .displayName(Text.translatable("itemgroup.mystic_forging_main"))
                     .entries((displayContext, entries) -> {
                         entries.add(MYSTIC_UPGRADE_TEMPLATE);
+                        entries.add(ModBlocks.MYSTIC_FOCUS_BLOCK);
                     }).build());
 
     public static Item registerItem(String path, Function<Item.Settings, Item> factory, Item.Settings settings) {

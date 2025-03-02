@@ -10,12 +10,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     public ModBlockTagProvider(FabricDataOutput output, CompletableFuture<WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
-        //TODO Auto-generated constructor stub
     }
 
     @Override
     protected void configure(WrapperLookup wrapperLookup) {
-        // TODO Auto-generated method stub
     }
     
 }
