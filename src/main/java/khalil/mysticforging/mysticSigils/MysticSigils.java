@@ -12,7 +12,7 @@ import java.util.List;
 public class MysticSigils {
 
         public static List<MysticSigil> sigilList = new ArrayList<>();
-        
+
         public static MysticSigil EARTH_BULWARK = createMysticSigil(
                         "Earth Bulwark", MysticSigil.School.EARTH, 1, Blocks.COBBLESTONE,
                         MysticSigil.Patterns.BULLWARK_1,
@@ -22,6 +22,10 @@ public class MysticSigils {
                         "Air Pathfinder", MysticSigil.School.AIR, 1, Blocks.WHITE_WOOL,
                         MysticSigil.Patterns.PATHFINDER_1,
                         ModEffects.AIR_PATHFINDER.value());
+
+        public static MysticSigil AIR_PATHFINDER2 = createMysticSigil(
+                        "Air Pathfinder", MysticSigil.School.AIR, 2, Blocks.WHITE_WOOL,
+                        MysticSigil.Patterns.PATHFINDER_2, ModEffects.AIR_PATHFINDER.value());
 
         public static MysticSigil EARTH_PATHFINDER = createMysticSigil(
                         "Earth Pathfinder", MysticSigil.School.EARTH, 1, Blocks.COBBLESTONE,
