@@ -11,12 +11,14 @@ import net.minecraft.world.World;
 
 import com.mojang.serialization.MapCodec;
 
+import khalil.mysticforging.mysticSigils.MysticSigil;
 import khalil.mysticforging.registrationhelpers.ModBlocks;
 
 
 public class MysticFocusBlock extends BlockWithEntity {
     public static final MapCodec<MysticFocusBlock> CODEC = createCodec(MysticFocusBlock::new);
-
+    private MysticSigil.School school;
+    
     public MysticFocusBlock(AbstractBlock.Settings settings) {
         super(settings);
     }
