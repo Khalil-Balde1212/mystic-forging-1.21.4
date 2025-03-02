@@ -14,7 +14,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 
 public class EarthBridgeEffect extends StatusEffect {
-    private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+    private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(2);
     BlockState[] earthyBlocks = {
             Blocks.DIRT.getDefaultState(),
             Blocks.GRASS_BLOCK.getDefaultState(),
