@@ -20,6 +20,10 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.MYSTIC_UPGRADE_TEMPLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MYSTIC_AIR_TEMPLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MYSTIC_EARTH_TEMPLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MYSTIC_FIRE_TEMPLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MYSTIC_LAVA_TEMPLATE, Models.GENERATED);
     }
 
 }
