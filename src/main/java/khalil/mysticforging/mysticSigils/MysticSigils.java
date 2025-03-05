@@ -32,12 +32,20 @@ public class MysticSigils {
                         MysticSigil.Patterns.PATHFINDER_1,
                         ModEffects.EARTH_PATHFINDER.value());
 
+        public static MysticSigil MAGMA_BULWARK = createMysticSigil(
+                        "Magma Bulwark", MysticSigil.School.MAGMA, 2, Blocks.MAGMA_BLOCK,
+                        MysticSigil.Patterns.BULLWARK_2,
+                        StatusEffects.FIRE_RESISTANCE.value());
+
+                        
+
         public static MysticSigil createMysticSigil(String name, MysticSigil.School school, int level, Block block,
                         MysticSigil.MysticPattern pattern, StatusEffect effect) {
                 MysticSigil newSigil = new MysticSigil(name, school, level, block, pattern, effect);
                 sigilList.add(newSigil);
                 return newSigil;
         }
+        
 
         public void init() {
                 MysticForging.LOGGER.info("Initializing Mystic Sigils for: " + MysticForging.MOD_ID);

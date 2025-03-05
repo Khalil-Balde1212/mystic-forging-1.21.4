@@ -70,7 +70,22 @@ public class MysticForgingPatternMixin<V> {
 	private void checkPatterns(World world, BlockPos pos, ItemStack resultStack) {
         for (MysticSigil sigil : MysticSigils.sigilList) {
             if (checkPattern(world, pos, sigil.getPattern().pattern(), sigil.getFocusBlock())) {
-                resultStack.set(ModComponents.SIGIL, sigil.setLevel(sigil.getLevel()));
+				MysticSigil currSigil = resultStack.get(ModComponents.SIGIL);
+				
+				if(sigil.getLevel() == 1){
+					resultStack.set(ModComponents.SIGIL, sigil.setLevel(sigil.getLevel()));
+					return;
+				}
+				
+
+				//upgrading sigils
+				if (sigil.getLevel() == 2) {
+					if (currSigil.getLevel() == 1 
+					&& currSigil.getSchool() == sigil.getSchool()) {
+						resultStack.set(ModComponents.SIGIL, sigil.setLevel(sigil.getLevel()));
+						return;
+					}
+				}
             }
         }
     }

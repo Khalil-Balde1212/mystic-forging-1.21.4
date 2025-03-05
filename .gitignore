@@ -42,3 +42,5 @@ replay_*.log
 
 # krita
 *.png~
+*.kra
+*.kra~
