@@ -77,6 +77,7 @@ public class MysticSigil {
         WATER(Formatting.BLUE),
         EARTH(Formatting.GRAY),
         FIRE(Formatting.RED),
+        MAGMA(Formatting.DARK_RED),
         AIR(Formatting.AQUA),
         WOOD(Formatting.GREEN);
 
