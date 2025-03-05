@@ -37,6 +37,8 @@ public class MysticSigils {
                         MysticSigil.Patterns.BULLWARK_2,
                         StatusEffects.FIRE_RESISTANCE.value());
 
+                        
+
         public static MysticSigil createMysticSigil(String name, MysticSigil.School school, int level, Block block,
                         MysticSigil.MysticPattern pattern, StatusEffect effect) {
                 MysticSigil newSigil = new MysticSigil(name, school, level, block, pattern, effect);
