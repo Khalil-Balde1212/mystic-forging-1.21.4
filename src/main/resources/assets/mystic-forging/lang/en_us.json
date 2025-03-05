@@ -1,6 +1,13 @@
 {
-    "itemgroup.mystic_forging_main" : "Mystic Forging Main Tab",
-    "item.mystic-forging.mystic_upgrade_template" : "Mystic Upgrade Template",
+    "itemgroup.mystic_forging_main": "Mystic Forging Main Tab",
 
-    "effect.mystic-forging.pathfinder_effect" : "Pathfinder Effect"
+    "item.mystic-forging.mystic_focus_block": "Mystic Focus Block",
+    "item.mystic-forging.mystic_upgrade_template": "Mystic Upgrade Template",
+    "item.mystic-forging.mystic_fire_template": "Mystic Fire Template",
+    "item.mystic-forging.mystic_earth_template": "Mystic Earth Template",
+    "item.mystic-forging.mystic_air_template": "Mystic Air Template",
+    "item.mystic-forging.mystic_lava_template": "Mystic Lava Template",
+
+
+    "effect.mystic-forging.pathfinder_effect": "Pathfinder Effect"
 }

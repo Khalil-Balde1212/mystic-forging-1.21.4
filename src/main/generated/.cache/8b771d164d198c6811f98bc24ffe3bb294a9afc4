@@ -1,3 +1,12 @@
 // 1.21.4	-999999999-01-01T00:00:00	Mystic Forging/Model Definitions
+61aeea6fe5355d405711ecac9022f58136f5da19 assets/mystic-forging/items/mystic_air_template.json
+639d7b1ccc4fc3a76b6a06b8eefe06c1d5ca83e4 assets/mystic-forging/items/mystic_earth_template.json
+ca2fa85f6f209ff534f3ae5214deaa51af4fe5f3 assets/mystic-forging/items/mystic_fire_template.json
+43c81488bc5e451828a80aecdde74723bb81cc93 assets/mystic-forging/items/mystic_focus_block.json
+a221f6eb0f1500b8d705ca298138d7696737ea6b assets/mystic-forging/items/mystic_lava_template.json
 6ea1372b7556345925310dfc43a1e64c2b966d7e assets/mystic-forging/items/mystic_upgrade_template.json
+43fdaa1067605c1fc3b45c8ce4090b431d714cb3 assets/mystic-forging/models/item/mystic_air_template.json
+4fec14721b47ce828ca105e1854c8bdffcdd4623 assets/mystic-forging/models/item/mystic_earth_template.json
+2425c65cf5610423bf74236d5c1dc094db2f2ac6 assets/mystic-forging/models/item/mystic_fire_template.json
+d50427f02d26ad1a7a8477e88ffceb4dc5b65152 assets/mystic-forging/models/item/mystic_lava_template.json
 4d67d0a54b89531bbadb3ab31991bbab80b86f02 assets/mystic-forging/models/item/mystic_upgrade_template.json
