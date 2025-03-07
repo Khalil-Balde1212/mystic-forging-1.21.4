@@ -31,6 +31,39 @@ public class ModEffects {
                             Identifier.of(MysticForging.MOD_ID, "base_leather_effect_speed"),
                             0.1, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
+    public static final RegistryEntry<StatusEffect> MYSTIC_IRON_ARMOR_BASE_EFFECT = registerStatusEffect(
+            "base_iron_effect",
+            new ModStatusEffect(StatusEffectCategory.BENEFICIAL, 0x808080)
+                    .addAttributeModifier(EntityAttributes.ATTACK_DAMAGE,
+                            Identifier.of(MysticForging.MOD_ID, "base_iron_effect_damage"),
+                            0.2, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE)
+                    .addAttributeModifier(EntityAttributes.ATTACK_SPEED,
+                            Identifier.of(MysticForging.MOD_ID, "base_iron_effect_speed"),
+                            0.1, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
+    public static final RegistryEntry<StatusEffect> MYSTIC_DIAMOND_ARMOR_BASE_EFFECT = registerStatusEffect(
+            "base_diamond_effect",
+            new ModStatusEffect(StatusEffectCategory.BENEFICIAL, 0x00FFFF)
+                    .addAttributeModifier(EntityAttributes.ATTACK_DAMAGE,
+                            Identifier.of(MysticForging.MOD_ID, "base_diamond_effect_damage"),
+                            0.3, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE)
+                    .addAttributeModifier(EntityAttributes.MOVEMENT_SPEED,
+                            Identifier.of(MysticForging.MOD_ID, "base_diamond_effect_speed"),
+                            -0.1, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
+    public static final RegistryEntry<StatusEffect> MYSTIC_NETHERRITE_ARMOR_BASE_EFFECT = registerStatusEffect(
+            "base_netherrite_effect",
+            new ModStatusEffect(StatusEffectCategory.BENEFICIAL, 0x00FFFF)
+                    .addAttributeModifier(EntityAttributes.ATTACK_DAMAGE,
+                            Identifier.of(MysticForging.MOD_ID, "base_netherrite_effect_damage"),
+                            0.4, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE)
+                    .addAttributeModifier(EntityAttributes.ATTACK_SPEED,
+                            Identifier.of(MysticForging.MOD_ID, "base_netherrite_effect_attack_speed"), 
+                            -0.2, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE)
+                    .addAttributeModifier(EntityAttributes.MOVEMENT_SPEED,
+                            Identifier.of(MysticForging.MOD_ID, "base_netherrite_effect_speed"),
+                            -0.2, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
     private static RegistryEntry<StatusEffect> registerStatusEffect(String name, StatusEffect statusEffect) {
         return Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(MysticForging.MOD_ID, name),
                 statusEffect);
