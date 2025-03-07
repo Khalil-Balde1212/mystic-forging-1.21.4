@@ -6,9 +6,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.BlockStateModelGenerator;
 import net.minecraft.client.data.ItemModelGenerator;
 import net.minecraft.client.data.Models;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.equipment.EquipmentAssetKeys;
-import net.minecraft.registry.RegistryKeys;
 
 public class ModModelProvider extends FabricModelProvider {
 
@@ -27,8 +24,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MYSTIC_EARTH_TEMPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.MYSTIC_FIRE_TEMPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.MYSTIC_LAVA_TEMPLATE, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.MYSTIC_LEATHER_HELMET, Models.GENERATED);
     }
 
 
