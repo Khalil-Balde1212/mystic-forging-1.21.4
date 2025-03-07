@@ -4,10 +4,12 @@ import java.util.function.Function;
 
 import khalil.mysticforging.MysticForging;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -31,6 +33,26 @@ public class ModItems {
     public static final Item MYSTIC_LAVA_TEMPLATE = registerItem("mystic_lava_template", Item::new,
             new Item.Settings());
 
+    public static final Item MYSTIC_LEATHER_HELMET = registerItem(
+            "mystic_leather_helmet",
+            settings -> new ArmorItem(ModArmorMaterials.MYSTIC_LEATHER, EquipmentType.HELMET, settings),
+            new Item.Settings().maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.BASE_DURABILITY)));
+
+    public static final Item MYSTIC_LEATHER_CHESTPLATE = registerItem(
+            "mystic_leather_chestplate",
+            settings -> new ArmorItem(ModArmorMaterials.MYSTIC_LEATHER, EquipmentType.CHESTPLATE, settings),
+            new Item.Settings().maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(ModArmorMaterials.BASE_DURABILITY)));
+
+    public static final Item MYSTIC_LEATHER_LEGGINGS = registerItem(
+            "mystic_leather_leggings",
+            settings -> new ArmorItem(ModArmorMaterials.MYSTIC_LEATHER, EquipmentType.LEGGINGS, settings),
+            new Item.Settings().maxDamage(EquipmentType.LEGGINGS.getMaxDamage(ModArmorMaterials.BASE_DURABILITY)));
+
+    public static final Item MYSTIC_LEATHER_BOOTS = registerItem(
+            "mystic_leather_boots",
+            settings -> new ArmorItem(ModArmorMaterials.MYSTIC_LEATHER, EquipmentType.BOOTS, settings),
+            new Item.Settings().maxDamage(EquipmentType.BOOTS.getMaxDamage(ModArmorMaterials.BASE_DURABILITY)));
+
     public static final ItemGroup SAURID_MAIN_GROUP = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(MysticForging.MOD_ID, "mystic_forging_main"),
             FabricItemGroup.builder().icon(() -> new ItemStack(Items.SMITHING_TABLE))
@@ -42,6 +64,10 @@ public class ModItems {
                         entries.add(MYSTIC_FIRE_TEMPLATE);
                         entries.add(MYSTIC_LAVA_TEMPLATE);
 
+                        entries.add(MYSTIC_LEATHER_HELMET);
+                        entries.add(MYSTIC_LEATHER_CHESTPLATE);
+                        entries.add(MYSTIC_LEATHER_LEGGINGS);
+                        entries.add(MYSTIC_LEATHER_BOOTS);
 
                         entries.add(ModBlocks.MYSTIC_FOCUS_BLOCK);
                     }).build());
