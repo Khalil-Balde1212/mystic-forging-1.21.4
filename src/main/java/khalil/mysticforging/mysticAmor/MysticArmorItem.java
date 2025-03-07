@@ -35,6 +35,7 @@ public class MysticArmorItem extends ArmorItem {
 
             if (hasFullSet) {
                 player.addStatusEffect(new StatusEffectInstance(ModEffects.MYSTIC_LEATHER_BASE_ARMOR_EFFECT, 0, 0, false, false, false));
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.HASTE, 0, 0, false, false, false));
             } 
         }
     }

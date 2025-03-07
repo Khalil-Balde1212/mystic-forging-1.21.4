@@ -28,8 +28,8 @@ public class ModEffects {
             "base_leather_effect",
             new ModStatusEffect(StatusEffectCategory.BENEFICIAL, 0x000000)
                     .addAttributeModifier(EntityAttributes.MOVEMENT_SPEED,
-                            Identifier.of(MysticForging.MOD_ID, "base_leather_effect"),
-                            0.2, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+                            Identifier.of(MysticForging.MOD_ID, "base_leather_effect_speed"),
+                            0.1, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     private static RegistryEntry<StatusEffect> registerStatusEffect(String name, StatusEffect statusEffect) {
         return Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(MysticForging.MOD_ID, name),
@@ -44,5 +44,5 @@ public class ModEffects {
         public ModStatusEffect(StatusEffectCategory category, int color) {
             super(category, color);
         }
-    }   
+    }
 }
