@@ -1,5 +1,6 @@
 package khalil.mysticforging.mysticAmor;
 
+import khalil.mysticforging.registrationhelpers.ModEffects;
 import khalil.mysticforging.registrationhelpers.ModTags;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -33,7 +34,7 @@ public class MysticArmorItem extends ArmorItem {
             }
 
             if (hasFullSet) {
-                player.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 0, 0, false, false, false));
+                player.addStatusEffect(new StatusEffectInstance(ModEffects.MYSTIC_LEATHER_BASE_ARMOR_EFFECT, 0, 0, false, false, false));
             } 
         }
     }

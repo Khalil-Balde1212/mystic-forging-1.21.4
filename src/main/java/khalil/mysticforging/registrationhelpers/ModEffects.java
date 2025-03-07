@@ -4,6 +4,8 @@ import khalil.mysticforging.MysticForging;
 import khalil.mysticforging.effects.AirPathfinderEffect;
 import khalil.mysticforging.effects.EarthBridgeEffect;
 import khalil.mysticforging.effects.EarthPathfinderEffect;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.registry.Registries;
@@ -22,6 +24,13 @@ public class ModEffects {
             new EarthBridgeEffect(StatusEffectCategory.BENEFICIAL, 0x8B4513) {
             });
 
+    public static final RegistryEntry<StatusEffect> MYSTIC_LEATHER_BASE_ARMOR_EFFECT = registerStatusEffect(
+            "base_leather_effect",
+            new ModStatusEffect(StatusEffectCategory.BENEFICIAL, 0x000000)
+                    .addAttributeModifier(EntityAttributes.MOVEMENT_SPEED,
+                            Identifier.of(MysticForging.MOD_ID, "base_leather_effect"),
+                            0.2, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
     private static RegistryEntry<StatusEffect> registerStatusEffect(String name, StatusEffect statusEffect) {
         return Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(MysticForging.MOD_ID, name),
                 statusEffect);
@@ -30,4 +39,10 @@ public class ModEffects {
     public static void registerModEffects() {
         MysticForging.LOGGER.info("Registering effects for: " + MysticForging.MOD_ID);
     }
+
+    private static class ModStatusEffect extends StatusEffect {
+        public ModStatusEffect(StatusEffectCategory category, int color) {
+            super(category, color);
+        }
+    }   
 }
