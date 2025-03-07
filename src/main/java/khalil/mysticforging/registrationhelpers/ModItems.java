@@ -3,6 +3,7 @@ package khalil.mysticforging.registrationhelpers;
 import java.util.function.Function;
 
 import khalil.mysticforging.MysticForging;
+import khalil.mysticforging.mysticAmor.MysticArmorItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
@@ -40,17 +41,17 @@ public class ModItems {
 
     public static final Item MYSTIC_LEATHER_CHESTPLATE = registerItem(
             "mystic_leather_chestplate",
-            settings -> new ArmorItem(ModArmorMaterials.MYSTIC_LEATHER, EquipmentType.CHESTPLATE, settings),
+            settings -> new MysticArmorItem(ModArmorMaterials.MYSTIC_LEATHER, EquipmentType.CHESTPLATE, settings),
             new Item.Settings().maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(ModArmorMaterials.BASE_DURABILITY)));
 
     public static final Item MYSTIC_LEATHER_LEGGINGS = registerItem(
             "mystic_leather_leggings",
-            settings -> new ArmorItem(ModArmorMaterials.MYSTIC_LEATHER, EquipmentType.LEGGINGS, settings),
+            settings -> new MysticArmorItem(ModArmorMaterials.MYSTIC_LEATHER, EquipmentType.LEGGINGS, settings),
             new Item.Settings().maxDamage(EquipmentType.LEGGINGS.getMaxDamage(ModArmorMaterials.BASE_DURABILITY)));
 
     public static final Item MYSTIC_LEATHER_BOOTS = registerItem(
             "mystic_leather_boots",
-            settings -> new ArmorItem(ModArmorMaterials.MYSTIC_LEATHER, EquipmentType.BOOTS, settings),
+            settings -> new MysticArmorItem(ModArmorMaterials.MYSTIC_LEATHER, EquipmentType.BOOTS, settings),
             new Item.Settings().maxDamage(EquipmentType.BOOTS.getMaxDamage(ModArmorMaterials.BASE_DURABILITY)));
 
     public static final ItemGroup SAURID_MAIN_GROUP = Registry.register(Registries.ITEM_GROUP,

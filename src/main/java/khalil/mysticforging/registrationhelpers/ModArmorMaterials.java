@@ -31,6 +31,4 @@ public class ModArmorMaterials {
         0.0F, 
         ItemTags.REPAIRS_LEATHER_ARMOR,
         MYSTIC_LEATHER_ARMOR_MATERIAL_KEY);
-
-    
 }
