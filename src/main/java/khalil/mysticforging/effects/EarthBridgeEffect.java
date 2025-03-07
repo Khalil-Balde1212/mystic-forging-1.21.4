@@ -12,7 +12,7 @@ import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
-
+//test
 public class EarthBridgeEffect extends StatusEffect {
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(2);
     BlockState[] earthyBlocks = {
